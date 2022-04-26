@@ -21,7 +21,7 @@ builder.Services.AddCors(option =>
 });
 builder.Services.AddDbContext<WorkDbContext>(option =>
 {
-    option.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
+	option.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
 
 var app = builder.Build();

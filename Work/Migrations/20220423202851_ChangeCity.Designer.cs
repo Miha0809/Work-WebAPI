@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Work.Services;
@@ -11,9 +12,10 @@ using Work.Services;
 namespace Work.Migrations
 {
     [DbContext(typeof(WorkDbContext))]
-    partial class WorkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220423202851_ChangeCity")]
+    partial class ChangeCity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace Work.Migrations
 
                     b.HasIndex("VacancyId");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Work.Models.City", b =>
@@ -62,7 +64,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("City", (string)null);
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("Work.Models.Employer", b =>
@@ -94,7 +96,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employer", (string)null);
+                    b.ToTable("Employer");
                 });
 
             modelBuilder.Entity("Work.Models.Salary", b =>
@@ -116,7 +118,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Salary", (string)null);
+                    b.ToTable("Salary");
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
@@ -166,7 +168,7 @@ namespace Work.Migrations
 
                     b.HasIndex("SalaryId");
 
-                    b.ToTable("Vacancy", (string)null);
+                    b.ToTable("Vacancy");
                 });
 
             modelBuilder.Entity("Work.Models.Category", b =>
