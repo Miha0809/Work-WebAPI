@@ -16,5 +16,5 @@ public class Vacancy
 
     public virtual City City { get; set; }
     public virtual Salary? Salary { get; set; }
-    public virtual Education Education { get; set; } = Education.DoesNotMatter;
+    public virtual Education Education { get; set; }
 }

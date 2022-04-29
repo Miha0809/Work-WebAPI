@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Work.Services;
@@ -11,9 +12,10 @@ using Work.Services;
 namespace Work.Migrations
 {
     [DbContext(typeof(WorkDbContext))]
-    partial class WorkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220423195155_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +43,7 @@ namespace Work.Migrations
 
                     b.HasIndex("VacancyId");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Work.Models.City", b =>
@@ -52,17 +54,18 @@ namespace Work.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int?>("StreetId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
-                    b.ToTable("City", (string)null);
+                    b.HasIndex("StreetId");
+
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("Work.Models.Employer", b =>
@@ -94,7 +97,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employer", (string)null);
+                    b.ToTable("Employer");
                 });
 
             modelBuilder.Entity("Work.Models.Salary", b =>
@@ -116,7 +119,24 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Salary", (string)null);
+                    b.ToTable("Salary");
+                });
+
+            modelBuilder.Entity("Work.Models.Street", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Street");
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
@@ -166,7 +186,7 @@ namespace Work.Migrations
 
                     b.HasIndex("SalaryId");
 
-                    b.ToTable("Vacancy", (string)null);
+                    b.ToTable("Vacancy");
                 });
 
             modelBuilder.Entity("Work.Models.Category", b =>
@@ -174,6 +194,15 @@ namespace Work.Migrations
                     b.HasOne("Work.Models.Vacancy", null)
                         .WithMany("Categories")
                         .HasForeignKey("VacancyId");
+                });
+
+            modelBuilder.Entity("Work.Models.City", b =>
+                {
+                    b.HasOne("Work.Models.Street", "Street")
+                        .WithMany()
+                        .HasForeignKey("StreetId");
+
+                    b.Navigation("Street");
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
