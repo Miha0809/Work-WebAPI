@@ -1,0 +1,12 @@
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/bin/Debug/net6.0/Work.Authentication.Common.deps.json
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/bin/Debug/net6.0/Work.Authentication.Common.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/bin/Debug/net6.0/Work.Authentication.Common.pdb
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.csproj.AssemblyReference.cache
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.GeneratedMSBuildEditorConfig.editorconfig
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.AssemblyInfoInputs.cache
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.AssemblyInfo.cs
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.csproj.CoreCompileInputs.cache
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/refint/Work.Authentication.Common.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/Work.Authentication.Common.pdb
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work.Authentication.Common/obj/Debug/net6.0/ref/Work.Authentication.Common.dll

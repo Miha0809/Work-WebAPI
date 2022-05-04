@@ -268,6 +268,7 @@
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+<<<<<<< Updated upstream
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/obj/Debug/net6.0/Work.csproj.AssemblyReference.cache
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/obj/Debug/net6.0/Work.GeneratedMSBuildEditorConfig.editorconfig
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/obj/Debug/net6.0/Work.AssemblyInfoInputs.cache
@@ -286,3 +287,8 @@
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/obj/Debug/net6.0/ref/Work.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Castle.Core.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Proxies.dll
+=======
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Work.Authentication.Common.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Work.Authentication.Common.pdb
+>>>>>>> Stashed changes
