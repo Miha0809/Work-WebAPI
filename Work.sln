@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work", "Work\Work.csproj", "{A37436A1-F2B5-4CB7-8FBD-A90815E973B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work.Authentication.Common", "Work.Authentication.Common\Work.Authentication.Common.csproj", "{4A13174F-66D7-456E-8107-49CFEE436356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Work", "Work\Work.csproj", "{6ECC964D-93B6-4E4B-B05D-283393A191E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A37436A1-F2B5-4CB7-8FBD-A90815E973B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A37436A1-F2B5-4CB7-8FBD-A90815E973B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A37436A1-F2B5-4CB7-8FBD-A90815E973B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A37436A1-F2B5-4CB7-8FBD-A90815E973B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A13174F-66D7-456E-8107-49CFEE436356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A13174F-66D7-456E-8107-49CFEE436356}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A13174F-66D7-456E-8107-49CFEE436356}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A13174F-66D7-456E-8107-49CFEE436356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECC964D-93B6-4E4B-B05D-283393A191E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECC964D-93B6-4E4B-B05D-283393A191E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECC964D-93B6-4E4B-B05D-283393A191E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECC964D-93B6-4E4B-B05D-283393A191E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
