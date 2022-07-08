@@ -9,7 +9,7 @@ namespace Work.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-// [Authorize] // TODO: Role
+[Authorize] // TODO: Role
 public class InfoController : ControllerBase
 {
     private readonly WorkDbContext _context;

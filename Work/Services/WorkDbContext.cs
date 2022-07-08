@@ -18,4 +18,5 @@ public class WorkDbContext : DbContext
     public virtual DbSet<VacancyIsSuitable> VacancyIsSuitables { get; set; }
     public virtual DbSet<Resume> Resumes { get; set; }
     public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 }

@@ -46,6 +46,7 @@ public class Employer
     [DataType(DataType.MultilineText)]
     public string Description { get; set; }
     
+    
     public virtual Role? Role { get; set; }
     public virtual List<Vacancy>?  Vacancies { get; set; }
 }
