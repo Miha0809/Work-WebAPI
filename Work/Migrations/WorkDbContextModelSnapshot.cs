@@ -53,7 +53,7 @@ namespace Work.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Applicants");
+                    b.ToTable("Applicants", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Category", b =>
@@ -70,7 +70,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.City", b =>
@@ -92,7 +92,7 @@ namespace Work.Migrations
 
                     b.HasIndex("StreetId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Education", b =>
@@ -109,7 +109,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Employer", b =>
@@ -160,7 +160,7 @@ namespace Work.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Employers");
+                    b.ToTable("Employers", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Experience", b =>
@@ -177,7 +177,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Experiences");
+                    b.ToTable("Experiences", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.RefreshToken", b =>
@@ -197,7 +197,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RefreshTokens");
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Resume", b =>
@@ -250,7 +250,7 @@ namespace Work.Migrations
 
                     b.HasIndex("VacancyIsSuitableId");
 
-                    b.ToTable("Resumes");
+                    b.ToTable("Resumes", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Role", b =>
@@ -267,7 +267,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Salary", b =>
@@ -289,7 +289,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Salary");
+                    b.ToTable("Salary", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Street", b =>
@@ -306,7 +306,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Street");
+                    b.ToTable("Street", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.TypeOfEmployments", b =>
@@ -323,7 +323,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeOfEmployments");
+                    b.ToTable("TypeOfEmployments", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
@@ -384,7 +384,7 @@ namespace Work.Migrations
 
                     b.HasIndex("VacancyIsSuitableId");
 
-                    b.ToTable("Vacancies");
+                    b.ToTable("Vacancies", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.VacancyIsSuitable", b =>
@@ -401,7 +401,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("VacancyIsSuitables");
+                    b.ToTable("VacancyIsSuitables", (string)null);
                 });
 
             modelBuilder.Entity("Work.Models.Applicant", b =>

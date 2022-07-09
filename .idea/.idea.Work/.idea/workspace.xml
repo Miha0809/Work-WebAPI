@@ -6,28 +6,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="444ccff1-1799-4d8f-87fd-66b8461239ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Work/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Migrations/20220706133109_Three.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Migrations/20220706133109_Three.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Migrations/20220706195850_Second.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Migrations/20220706195850_Second.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Models/RefreshToken.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Work/Models/RefreshTokenRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Microsoft.Build.Framework.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Microsoft.Build.Tasks.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Microsoft.Build.Utilities.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Microsoft.Build.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Microsoft.NET.StringTools.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/System.CodeDom.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/System.Resources.Extensions.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Work/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Work/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/Controllers/InfoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Controllers/InfoController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/Migrations/WorkDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Migrations/WorkDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/Models/Employer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Models/Employer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/Services/WorkDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Services/WorkDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/Models/RefreshToken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Models/RefreshToken.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Properties/launchSettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/Work.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Work/Work.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Work/bin/Debug/net6.0/Work.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/Work.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/ref/Work.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/ref/Work.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/Debug/net6.0/refint/Work.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Debug/net6.0/refint/Work.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Work/obj/Work.csproj.EntityFrameworkCore.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Work.csproj.EntityFrameworkCore.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/Work.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/Work.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Work/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Work/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/Work/obj/staticwebassets.pack.sentinel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,14 +69,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReaderModeSettings">
     <option name="showLigatures" value="true" />
   </component>
@@ -148,7 +156,10 @@
       <workItem from="1657202857437" duration="1659000" />
       <workItem from="1657280399077" duration="300000" />
       <workItem from="1657284535369" duration="1749000" />
-      <workItem from="1657294241650" duration="1354000" />
+      <workItem from="1657294241650" duration="1890000" />
+      <workItem from="1657297369905" duration="1871000" />
+      <workItem from="1657371927442" duration="3673000" />
+      <workItem from="1657380435479" duration="2341000" />
     </task>
     <servers />
   </component>
@@ -161,6 +172,38 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs</url>
+          <line>44</line>
+          <properties documentPath="$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs" initialLine="43" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="1308" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1309" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs</url>
+          <line>76</line>
+          <properties documentPath="$PROJECT_DIR$/Work/Controllers/AuthenticationEmployerController.cs" initialLine="76" containingFunctionPresentation="method 'Logout'">
+            <startOffsets>
+              <option value="2333" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2334" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

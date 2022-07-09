@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,6 +15,7 @@ namespace Work.Controllers;
 public class AuthenticationEmployerController : ControllerBase
 {
     private readonly WorkDbContext _context;
+    private RefreshToken _refreshTokenDTO;
 
     public AuthenticationEmployerController(WorkDbContext context)
     {
@@ -46,10 +48,9 @@ public class AuthenticationEmployerController : ControllerBase
 
         if (user == null || !Hash.VerifyHash(login.Password, Hash.GetHash(login.Password)) || !ModelState.IsValid)
         {
-            return BadRequest();
+           return BadRequest();
         }
 
-        // TODO: При реєстрації роль встанюється, а при логіні роль null
         user.Role = await _context.Roles.FirstOrDefaultAsync(role => role.Name.Equals("Employer"));
         
         var accessToken = GenerateAccessToken(user);
@@ -60,11 +61,32 @@ public class AuthenticationEmployerController : ControllerBase
             UserId = user.Id
         };
 
+        await _context.RefreshTokens.AddAsync(refreshTokenDTO);
+        await _context.SaveChangesAsync();
+        
         return Ok(new
         {
-            access_tone = accessToken,
+            access_token = accessToken,
             refresh_token = refreshToken
         });
+    }
+
+    [Authorize]
+    [HttpDelete("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        var userId = int.Parse(HttpContext.User.FindFirstValue("Id"));
+        var refresh = await _context.RefreshTokens.FirstOrDefaultAsync(token => token.UserId == userId);
+
+        if (refresh == null)
+        {
+            return BadRequest();
+        }
+        
+        _context.RefreshTokens.Remove(refresh);
+        await _context.SaveChangesAsync();
+        
+        return Ok();
     }
 
     [HttpPost("refresh")]
@@ -74,19 +96,20 @@ public class AuthenticationEmployerController : ControllerBase
         {
             return BadRequest();
         }
-    
+
         var isValid = Validate(refresh.RefreshToken);
-        var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(token => token.Token.Equals(refresh));
+        var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(token => token.Token.Equals(refresh.RefreshToken));
         var user = await _context.Employers.FindAsync(refreshToken.UserId);
-    
-        _context.RefreshTokens.Remove(refreshToken);
-        await _context.SaveChangesAsync();
+        user.Role = await _context.Roles.FirstOrDefaultAsync(role => role.Name.Equals("Employer"));
         
         if (!isValid || refreshToken == null || user == null)
         {
             return BadRequest();
         }
-    
+        
+        _context.RefreshTokens.Remove(refreshToken);
+        await _context.SaveChangesAsync();
+
         var accessToken = GenerateAccessToken(user);
         var refreshToken2 = GenerateRefreshToken();
         var refreshTokenDTO = new RefreshToken()
@@ -100,8 +123,8 @@ public class AuthenticationEmployerController : ControllerBase
     
         return Ok(new
         {
-            access_tone = accessToken,
-            refresh_token = refreshToken
+            access_token = accessToken,
+            refresh_token = refreshToken.Token
         });
     }
 
@@ -126,7 +149,7 @@ public class AuthenticationEmployerController : ControllerBase
                                          signingCredentials: credentials);
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-    
+
     private string GenerateRefreshToken()
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("REFRESH_SECRET_KEY")));
@@ -135,10 +158,10 @@ public class AuthenticationEmployerController : ControllerBase
         var audience = Environment.GetEnvironmentVariable("AUDIENCE") ?? string.Empty;
         var minutes = int.Parse(Environment.GetEnvironmentVariable("REFRESH_TIME_LIFE_KAY_MIN") ?? string.Empty);
         var token = new JwtSecurityToken(issuer: issuer,
-            audience: audience,
-            notBefore: DateTime.UtcNow,
-            expires: DateTime.Now.AddMinutes(minutes),
-            signingCredentials: credentials);
+                                         audience: audience,
+                                         notBefore: DateTime.UtcNow,
+                                         expires: DateTime.Now.AddMinutes(minutes),
+                                         signingCredentials: credentials);
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 

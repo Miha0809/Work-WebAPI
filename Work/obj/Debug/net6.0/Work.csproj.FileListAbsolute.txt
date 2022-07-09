@@ -254,3 +254,10 @@
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
 /home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.Build.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.Build.Framework.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.Build.Tasks.Core.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.Build.Utilities.Core.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/Microsoft.NET.StringTools.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/System.CodeDom.dll
+/home/mar-full/Documents/Mark/Programming/Projects/Back-end/C#/ASP.NET/Work/Work/bin/Debug/net6.0/System.Resources.Extensions.dll
