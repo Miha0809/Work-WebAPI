@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Work.Services;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddTransient<IAuthorizationHandler, RolesInDBAuthorizationHandler>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,7 +19,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     {
         jwt.TokenValidationParameters = new TokenValidationParameters()
         {
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ACCESS_SECRET_KEY"))),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ACCESS_SECRET_KEY") ?? String.Empty)),
             ValidIssuer = Environment.GetEnvironmentVariable("ISSUER"),
             ValidAudience = Environment.GetEnvironmentVariable("AUDIENCE"),
             ValidateIssuerSigningKey = true,
@@ -37,7 +39,8 @@ builder.Services.AddCors(option =>
 });
 builder.Services.AddDbContext<WorkDbContext>(option =>
 {
-    option.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
+    option.UseLazyLoadingProxies()
+          .UseNpgsql(builder.Configuration.GetConnectionString("Default"));
 });
 
 var app = builder.Build();
@@ -66,3 +69,4 @@ app.UseEndpoints(endpoints =>
 });
 
 app.Run();
+// TODO: In table "Experiences" change data

@@ -2,10 +2,9 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Work.Models;
 using Work.Services;
 
-namespace Work.Controllers;
+namespace Work.Controllers.Employer;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -13,8 +12,7 @@ namespace Work.Controllers;
 public class ProfileEmployerController : ControllerBase
 {
     private readonly WorkDbContext _context;
-    private readonly int _id;
-    
+
     public ProfileEmployerController(WorkDbContext context)
     {
         _context = context;
@@ -25,12 +23,12 @@ public class ProfileEmployerController : ControllerBase
     {
         int.TryParse(HttpContext.User.FindFirstValue("Id"), out var userId);
         var employer = await _context.Employers.FirstOrDefaultAsync(user => user.Id.Equals(userId));
-        
+
         return Ok(employer);
     }
 
     [HttpPut("profile/setting")]
-    public async Task<IActionResult> PutProfile([FromBody] Employer employer)
+    public async Task<IActionResult> PutProfile([FromBody] Models.Employer employer)
     {
         if (!ModelState.IsValid || employer == null)
         {
@@ -54,7 +52,7 @@ public class ProfileEmployerController : ControllerBase
 
         return Ok();
     }
-    
+
     // TODO: Create history my vacancies
     [HttpGet("profile/histoty/vacancies")]
     public async Task<IActionResult> GetHistoryVacancies()

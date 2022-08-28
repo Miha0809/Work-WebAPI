@@ -11,12 +11,14 @@ public class WorkDbContext : DbContext
     public virtual DbSet<City> Cities { get; set; }
     public virtual DbSet<Employer> Employers { get; set; }
     public virtual DbSet<Applicant> Applicants { get; set; }
+    public virtual DbSet<HistoryVacancy> HistoryVacancies { get; set; }
     public virtual DbSet<Vacancy> Vacancies { get; set; }
     public virtual DbSet<Education> Educations { get; set; }
     public virtual DbSet<Experience> Experiences { get; set; }
     public virtual DbSet<TypeOfEmployments> TypeOfEmployments { get; set; }
-    public virtual DbSet<VacancyIsSuitable> VacancyIsSuitables { get; set; }
+    public virtual DbSet<VacancySuitable> VacancySuitables { get; set; }
     public virtual DbSet<Resume> Resumes { get; set; }
     public virtual DbSet<Role> Roles { get; set; }
     public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
+    public virtual DbSet<Salary> Salaries { get; set; }
 }

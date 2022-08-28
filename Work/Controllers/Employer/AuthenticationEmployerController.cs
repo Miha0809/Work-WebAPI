@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Work.Models;
 using Work.Services;
 
-namespace Work.Controllers;
+namespace Work.Controllers.Employer;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -23,7 +23,7 @@ public class AuthenticationEmployerController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(Employer employer)
+    public async Task<IActionResult> Register(Models.Employer employer)
     {
         if (employer == null || !ModelState.IsValid)
         {
@@ -48,7 +48,7 @@ public class AuthenticationEmployerController : ControllerBase
 
         if (user == null || !Hash.VerifyHash(login.Password, Hash.GetHash(login.Password)) || !ModelState.IsValid)
         {
-           return BadRequest();
+            return BadRequest();
         }
 
         var accessToken = GenerateAccessToken(user);
@@ -61,7 +61,7 @@ public class AuthenticationEmployerController : ControllerBase
 
         await _context.RefreshTokens.AddAsync(refreshTokenDTO);
         await _context.SaveChangesAsync();
-        
+
         return Ok(new
         {
             access_token = accessToken,
@@ -80,10 +80,10 @@ public class AuthenticationEmployerController : ControllerBase
         {
             return BadRequest();
         }
-        
+
         _context.RefreshTokens.Remove(refresh);
         await _context.SaveChangesAsync();
-        
+
         return Ok();
     }
 
@@ -96,14 +96,15 @@ public class AuthenticationEmployerController : ControllerBase
         }
 
         var isValid = Validate(refresh.RefreshToken);
-        var refreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(token => token.Token.Equals(refresh.RefreshToken));
+        var refreshToken =
+            await _context.RefreshTokens.FirstOrDefaultAsync(token => token.Token.Equals(refresh.RefreshToken));
         var user = await _context.Employers.FindAsync(refreshToken.UserId);
-        
+
         if (!isValid || refreshToken == null || user == null)
         {
             return BadRequest();
         }
-        
+
         _context.RefreshTokens.Remove(refreshToken);
         await _context.SaveChangesAsync();
 
@@ -114,10 +115,10 @@ public class AuthenticationEmployerController : ControllerBase
             Token = refreshToken2,
             UserId = user.Id
         };
-        
+
         await _context.RefreshTokens.AddAsync(refreshTokenDTO);
         await _context.SaveChangesAsync();
-    
+
         return Ok(new
         {
             access_token = accessToken,
@@ -125,9 +126,10 @@ public class AuthenticationEmployerController : ControllerBase
         });
     }
 
-    private string GenerateAccessToken(Employer employer)
+    private string GenerateAccessToken(Models.Employer employer)
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ACCESS_SECRET_KEY")));
+        var key = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ACCESS_SECRET_KEY")));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
         var claims = new List<Claim>
         {
@@ -139,26 +141,27 @@ public class AuthenticationEmployerController : ControllerBase
         var audience = Environment.GetEnvironmentVariable("AUDIENCE") ?? string.Empty;
         int.TryParse(Environment.GetEnvironmentVariable("ACCESS_TIME_LIFE_KAY_MIN") ?? string.Empty, out var minutes);
         var token = new JwtSecurityToken(issuer: issuer,
-                                         audience: audience,
-                                         claims: claims,
-                                         notBefore: DateTime.UtcNow,
-                                         expires: DateTime.Now.AddMinutes(minutes),
-                                         signingCredentials: credentials);
+            audience: audience,
+            claims: claims,
+            notBefore: DateTime.UtcNow,
+            expires: DateTime.Now.AddMinutes(minutes),
+            signingCredentials: credentials);
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
     private string GenerateRefreshToken()
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("REFRESH_SECRET_KEY")));
+        var key = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("REFRESH_SECRET_KEY")));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
         var issuer = Environment.GetEnvironmentVariable("ISSUER") ?? string.Empty;
         var audience = Environment.GetEnvironmentVariable("AUDIENCE") ?? string.Empty;
         int.TryParse(Environment.GetEnvironmentVariable("REFRESH_TIME_LIFE_KAY_MIN") ?? string.Empty, out var minutes);
         var token = new JwtSecurityToken(issuer: issuer,
-                                         audience: audience,
-                                         notBefore: DateTime.UtcNow,
-                                         expires: DateTime.Now.AddMinutes(minutes),
-                                         signingCredentials: credentials);
+            audience: audience,
+            notBefore: DateTime.UtcNow,
+            expires: DateTime.Now.AddMinutes(minutes),
+            signingCredentials: credentials);
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
@@ -177,7 +180,7 @@ public class AuthenticationEmployerController : ControllerBase
             ClockSkew = TimeSpan.Zero
         };
         var token = new JwtSecurityTokenHandler();
-    
+
         try
         {
             token.ValidateToken(refresh, tokenValidationParameters, out SecurityToken validated);

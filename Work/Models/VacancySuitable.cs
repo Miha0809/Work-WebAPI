@@ -7,7 +7,8 @@ public class VacancySuitable
     [Key]
     public int Id { get; set; }
     
-    [Required]
-    [StringLength()]
-    public string Name { get; set; }
+    // [Required] TODO: ??
+    // [StringLength(32, MinimumLength = 4)]
+    // [DataType(DataType.Text)]
+    public string? Name { get; set; }
 }

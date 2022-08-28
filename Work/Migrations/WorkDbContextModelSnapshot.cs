@@ -32,113 +32,10 @@ namespace Work.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("NumberPhone")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int?>("RoleId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("Applicants", (string)null);
-                });
-
-            modelBuilder.Entity("Work.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Categories", (string)null);
-                });
-
-            modelBuilder.Entity("Work.Models.City", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int?>("StreetId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StreetId");
-
-                    b.ToTable("Cities", (string)null);
-                });
-
-            modelBuilder.Entity("Work.Models.Education", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Educations", (string)null);
-                });
-
-            modelBuilder.Entity("Work.Models.Employer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<long>("CountJobs")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(512)
-                        .HasColumnType("character varying(512)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("character varying(128)");
-
-                    b.Property<string>("NameCompany")
                         .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("character varying(128)");
@@ -160,7 +57,108 @@ namespace Work.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("Employers", (string)null);
+                    b.ToTable("Applicants");
+                });
+
+            modelBuilder.Entity("Work.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Work.Models.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
+
+                    b.Property<int?>("StreetId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StreetId");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Work.Models.Education", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Educations");
+                });
+
+            modelBuilder.Entity("Work.Models.Employer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<long>("CountJobs")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(512)
+                        .HasColumnType("character varying(512)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<string>("FullName")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<string>("NameCompany")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<string>("NumberPhone")
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
+                    b.Property<string>("Password")
+                        .HasMaxLength(128)
+                        .HasColumnType("character varying(128)");
+
+                    b.Property<int?>("RoleId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("Employers");
                 });
 
             modelBuilder.Entity("Work.Models.Experience", b =>
@@ -172,12 +170,29 @@ namespace Work.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Experiences", (string)null);
+                    b.ToTable("Experiences");
+                });
+
+            modelBuilder.Entity("Work.Models.HistoryVacancy", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("EmployerId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployerId");
+
+                    b.ToTable("HistoryVacancies");
                 });
 
             modelBuilder.Entity("Work.Models.RefreshToken", b =>
@@ -197,7 +212,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RefreshTokens", (string)null);
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("Work.Models.Resume", b =>
@@ -211,25 +226,28 @@ namespace Work.Migrations
                     b.Property<int?>("ApplicantId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("CityId")
+                    b.Property<int?>("CityId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("EducationId")
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("EducationId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ExperienceId")
+                    b.Property<int?>("ExperienceId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("SalaryId")
+                    b.Property<int?>("SalaryId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TypeOfEmploymentsId")
+                    b.Property<int?>("TypeOfEmploymentsId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("VacancyIsSuitableId")
+                    b.Property<int?>("VacancySuitableId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -248,9 +266,9 @@ namespace Work.Migrations
 
                     b.HasIndex("TypeOfEmploymentsId");
 
-                    b.HasIndex("VacancyIsSuitableId");
+                    b.HasIndex("VacancySuitableId");
 
-                    b.ToTable("Resumes", (string)null);
+                    b.ToTable("Resumes");
                 });
 
             modelBuilder.Entity("Work.Models.Role", b =>
@@ -263,11 +281,12 @@ namespace Work.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", (string)null);
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Work.Models.Salary", b =>
@@ -279,7 +298,8 @@ namespace Work.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Comment")
-                        .HasColumnType("text");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.Property<decimal>("Max")
                         .HasColumnType("numeric(20,0)");
@@ -289,7 +309,7 @@ namespace Work.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Salary", (string)null);
+                    b.ToTable("Salaries");
                 });
 
             modelBuilder.Entity("Work.Models.Street", b =>
@@ -302,11 +322,12 @@ namespace Work.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Street", (string)null);
+                    b.ToTable("Street");
                 });
 
             modelBuilder.Entity("Work.Models.TypeOfEmployments", b =>
@@ -318,12 +339,11 @@ namespace Work.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeOfEmployments", (string)null);
+                    b.ToTable("TypeOfEmployments");
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
@@ -334,7 +354,7 @@ namespace Work.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CategoriesId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("integer");
 
                     b.Property<int?>("CityId")
@@ -342,7 +362,8 @@ namespace Work.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(512)
+                        .HasColumnType("character varying(512)");
 
                     b.Property<int?>("EducationId")
                         .HasColumnType("integer");
@@ -350,25 +371,29 @@ namespace Work.Migrations
                     b.Property<int?>("EmployerId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("ExperiencesId")
+                    b.Property<int?>("ExperienceId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int?>("HistoryVacancyId")
+                        .HasColumnType("integer");
 
                     b.Property<int?>("SalaryId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
                     b.Property<int?>("TypeOfEmploymentsId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("VacancyIsSuitableId")
+                    b.Property<int?>("VacancySuitableId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoriesId");
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("CityId");
 
@@ -376,18 +401,20 @@ namespace Work.Migrations
 
                     b.HasIndex("EmployerId");
 
-                    b.HasIndex("ExperiencesId");
+                    b.HasIndex("ExperienceId");
+
+                    b.HasIndex("HistoryVacancyId");
 
                     b.HasIndex("SalaryId");
 
                     b.HasIndex("TypeOfEmploymentsId");
 
-                    b.HasIndex("VacancyIsSuitableId");
+                    b.HasIndex("VacancySuitableId");
 
-                    b.ToTable("Vacancies", (string)null);
+                    b.ToTable("Vacancies");
                 });
 
-            modelBuilder.Entity("Work.Models.VacancyIsSuitable", b =>
+            modelBuilder.Entity("Work.Models.VacancySuitable", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -396,12 +423,11 @@ namespace Work.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("VacancyIsSuitables", (string)null);
+                    b.ToTable("VacancySuitables");
                 });
 
             modelBuilder.Entity("Work.Models.Applicant", b =>
@@ -431,53 +457,50 @@ namespace Work.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("Work.Models.HistoryVacancy", b =>
+                {
+                    b.HasOne("Work.Models.Employer", "Employer")
+                        .WithMany()
+                        .HasForeignKey("EmployerId");
+
+                    b.Navigation("Employer");
+                });
+
             modelBuilder.Entity("Work.Models.Resume", b =>
                 {
-                    b.HasOne("Work.Models.Applicant", null)
+                    b.HasOne("Work.Models.Applicant", "Applicant")
                         .WithMany("Resumes")
                         .HasForeignKey("ApplicantId");
 
                     b.HasOne("Work.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("Work.Models.City", "City")
                         .WithMany()
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CityId");
 
                     b.HasOne("Work.Models.Education", "Education")
                         .WithMany()
-                        .HasForeignKey("EducationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EducationId");
 
                     b.HasOne("Work.Models.Experience", "Experience")
                         .WithMany()
-                        .HasForeignKey("ExperienceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExperienceId");
 
                     b.HasOne("Work.Models.Salary", "Salary")
                         .WithMany()
-                        .HasForeignKey("SalaryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SalaryId");
 
                     b.HasOne("Work.Models.TypeOfEmployments", "TypeOfEmployments")
                         .WithMany()
-                        .HasForeignKey("TypeOfEmploymentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TypeOfEmploymentsId");
 
-                    b.HasOne("Work.Models.VacancyIsSuitable", "VacancyIsSuitable")
+                    b.HasOne("Work.Models.VacancySuitable", "VacancySuitable")
                         .WithMany()
-                        .HasForeignKey("VacancyIsSuitableId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VacancySuitableId");
+
+                    b.Navigation("Applicant");
 
                     b.Navigation("Category");
 
@@ -491,14 +514,14 @@ namespace Work.Migrations
 
                     b.Navigation("TypeOfEmployments");
 
-                    b.Navigation("VacancyIsSuitable");
+                    b.Navigation("VacancySuitable");
                 });
 
             modelBuilder.Entity("Work.Models.Vacancy", b =>
                 {
-                    b.HasOne("Work.Models.Category", "Categories")
+                    b.HasOne("Work.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoriesId");
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("Work.Models.City", "City")
                         .WithMany()
@@ -508,13 +531,17 @@ namespace Work.Migrations
                         .WithMany()
                         .HasForeignKey("EducationId");
 
-                    b.HasOne("Work.Models.Employer", null)
+                    b.HasOne("Work.Models.Employer", "Employer")
                         .WithMany("Vacancies")
                         .HasForeignKey("EmployerId");
 
-                    b.HasOne("Work.Models.Experience", "Experiences")
+                    b.HasOne("Work.Models.Experience", "Experience")
                         .WithMany()
-                        .HasForeignKey("ExperiencesId");
+                        .HasForeignKey("ExperienceId");
+
+                    b.HasOne("Work.Models.HistoryVacancy", null)
+                        .WithMany("Vacancies")
+                        .HasForeignKey("HistoryVacancyId");
 
                     b.HasOne("Work.Models.Salary", "Salary")
                         .WithMany()
@@ -524,23 +551,25 @@ namespace Work.Migrations
                         .WithMany()
                         .HasForeignKey("TypeOfEmploymentsId");
 
-                    b.HasOne("Work.Models.VacancyIsSuitable", "VacancyIsSuitable")
+                    b.HasOne("Work.Models.VacancySuitable", "VacancySuitable")
                         .WithMany()
-                        .HasForeignKey("VacancyIsSuitableId");
+                        .HasForeignKey("VacancySuitableId");
 
-                    b.Navigation("Categories");
+                    b.Navigation("Category");
 
                     b.Navigation("City");
 
                     b.Navigation("Education");
 
-                    b.Navigation("Experiences");
+                    b.Navigation("Employer");
+
+                    b.Navigation("Experience");
 
                     b.Navigation("Salary");
 
                     b.Navigation("TypeOfEmployments");
 
-                    b.Navigation("VacancyIsSuitable");
+                    b.Navigation("VacancySuitable");
                 });
 
             modelBuilder.Entity("Work.Models.Applicant", b =>
@@ -549,6 +578,11 @@ namespace Work.Migrations
                 });
 
             modelBuilder.Entity("Work.Models.Employer", b =>
+                {
+                    b.Navigation("Vacancies");
+                });
+
+            modelBuilder.Entity("Work.Models.HistoryVacancy", b =>
                 {
                     b.Navigation("Vacancies");
                 });

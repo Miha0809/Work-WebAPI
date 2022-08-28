@@ -23,7 +23,7 @@ public class AuthenticationApplicantController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(Applicant applicant)
+    public async Task<IActionResult> Register(Models.Applicant applicant)
     {
         if (applicant == null || !ModelState.IsValid)
         {
@@ -69,7 +69,7 @@ public class AuthenticationApplicantController : ControllerBase
         });
     }
 
-    [Authorize] // TODO: Role
+    [Authorize(Roles = "Applicant")]
     [HttpDelete("logout")]
     public async Task<IActionResult> Logout()
     {
@@ -125,7 +125,7 @@ public class AuthenticationApplicantController : ControllerBase
         });
     }
 
-    private string GenerateAccessToken(Applicant applicant)
+    private string GenerateAccessToken(Models.Applicant applicant)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("ACCESS_SECRET_KEY")));
         var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);

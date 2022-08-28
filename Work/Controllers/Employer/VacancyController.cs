@@ -39,8 +39,32 @@ public class VacancyController : ControllerBase
         {
             return BadRequest();
         }
-        
-        vacancy.Employer = await _context.Employers.FirstOrDefaultAsync(user => user.Email.Equals(vacancy.Employer.Email));
+
+        vacancy.Employer =
+            await _context.Employers.FirstOrDefaultAsync(user =>
+                user.Email.Equals(HttpContext.User.FindFirstValue("Email")));
+        vacancy.Category =
+            await _context.Categories.FirstOrDefaultAsync(category =>
+                category.Id.Equals(vacancy.Category!.Id));
+        vacancy.TypeOfEmployments =
+            await _context.TypeOfEmployments.FirstOrDefaultAsync(type =>
+                type.Id.Equals(vacancy.TypeOfEmployments!.Id));
+        vacancy.Experience =
+            await _context.Experiences.FirstOrDefaultAsync(experience =>
+                experience.Id.Equals(vacancy.Experience!.Id));
+        vacancy.VacancySuitable =
+            await _context.VacancySuitables.FirstOrDefaultAsync(suitable =>
+                suitable.Id.Equals(vacancy.VacancySuitable!.Id));
+        vacancy.Education =
+            await _context.Educations.FirstOrDefaultAsync(education =>
+                education.Id.Equals(vacancy.Education!.Id));
+
+        if (vacancy.Salary?.Comment != null)
+        {
+            vacancy.Salary =
+                await _context.Salaries.FirstOrDefaultAsync(salary =>
+                    salary.Comment!.Equals(vacancy.Salary.Comment));
+        }
         
         await _context.Vacancies.AddAsync(vacancy);
         await _context.SaveChangesAsync();
@@ -76,12 +100,12 @@ public class VacancyController : ControllerBase
         var historyVacancy = new HistoryVacancy()
         {
             Employer = user,
-            Vacancies = new List<Vacancy> { vacancy }
+            Vacancies = new List<Vacancy> {vacancy}
         };
         _context.Vacancies.Remove(vacancy);
         await _context.HistoryVacancies.AddAsync(historyVacancy);
         await _context.SaveChangesAsync();
-        
-        return Ok();
+
+        return Ok(historyVacancy);
     }
 }

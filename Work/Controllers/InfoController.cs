@@ -2,7 +2,6 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Work.Models;
 using Work.Services;
 
 namespace Work.Controllers;
@@ -20,7 +19,7 @@ public class InfoController : ControllerBase
     }
 
     [HttpGet("employers")]
-    public async Task<ActionResult<IEnumerable<Employer>>> Employers()
+    public async Task<ActionResult<IEnumerable<Models.Employer>>> Employers()
     {
         return await _context.Employers.ToListAsync();
     }
